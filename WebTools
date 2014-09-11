@@ -3,9 +3,8 @@ from socket import *
 print "Welcome to Web Tools by ts1506"
 
 def ip_lookup():
-    import socket
     domain = raw_input("Enter domain: ")
-    print "IP Address is "+socket.gethostbyname(domain)
+    print "IP Address is "+gethostbyname(domain)
 
 def portscan():
     host = raw_input("Enter host: ")
