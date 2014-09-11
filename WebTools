@@ -6,6 +6,10 @@ def ip_lookup():
     domain = raw_input("Enter domain: ")
     print "IP Address is "+gethostbyname(domain)
 
+def domain():
+    ip = raw_input("Enter IP Address: ")
+    print "Full Domain name is "+getfqdn(ip)
+
 def portscan():
     host = raw_input("Enter host: ")
     l_port = input("Enter starting port: ")
@@ -20,12 +24,13 @@ def portscan():
 
 opt = {1 : ip_lookup,
        2 : portscan,
+       3 : domain,
        }
 
 flag=1
 while flag==1:
     print "Select the desired tool"
-    print "1. IP Lookup 2. Port Scanner"
+    print "1. IP Lookup 2. Port Scanner 3. Domain Lookup"
 
     choice = input("Enter your choice :")
     try:
