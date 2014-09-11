@@ -1,0 +1,38 @@
+from socket import *
+
+print "Welcome to Web Tools by ts1506"
+
+def ip_lookup():
+    import socket
+    domain = raw_input("Enter domain: ")
+    print "IP Address is "+socket.gethostbyname(domain)
+
+def portscan():
+    host = raw_input("Enter host: ")
+    l_port = input("Enter starting port: ")
+    u_port = input("Enter ending port: ")
+
+    print "Scanning for open ports"
+    for i in range(l_port,u_port):
+        soc = socket(AF_INET,SOCK_STREAM)
+        if soc.connect_ex((host,i)) == 0:
+            print "Port "+str(i)+ " is open"
+        soc.close()
+
+opt = {1 : ip_lookup,
+       2 : portscan,
+       }
+
+flag=1
+while flag==1:
+    print "Select the desired tool"
+    print "1. IP Lookup 2. Port Scanner"
+
+    choice = input("Enter your choice :")
+    try:
+        opt[choice]()
+    except KeyError:
+        print "Invalid Choice"
+    flag=input("Input 1 to continue :")
+    if flag!=1:
+        print "\nThanks for using Web Tools by ts1506"
