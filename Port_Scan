@@ -1,0 +1,13 @@
+from socket import *
+
+host = raw_input("Enter host: ")
+l_port = input("Enter starting port: ")
+u_port = input("Enter ending port: ")
+
+print "Scanning for open ports"
+for i in range(l_port,u_port):
+    soc = socket(AF_INET,SOCK_STREAM)
+    if soc.connect_ex((host,i)) == 0:
+        print "Port "+str(i)+ " is open"
+    soc.close()
+
