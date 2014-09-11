@@ -1,0 +1,4 @@
+import socket
+
+domain = raw_input("Enter domain: ")
+print "IP Address is "+socket.gethostbyname(domain)
