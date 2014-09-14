@@ -16,7 +16,7 @@ def portscan():
     u_port = input("Enter ending port: ")
 
     print "Scanning for open ports"
-    for i in range(l_port,u_port):
+    for i in range(l_port,u_port+1):
         soc = socket(AF_INET,SOCK_STREAM)
         if soc.connect_ex((host,i)) == 0:
             print "Port "+str(i)+ " is open"
